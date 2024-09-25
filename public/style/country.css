@@ -1,0 +1,58 @@
+body {
+    font-family: "Roboto", sans-serif;
+
+    color: white;
+    background: #21252b;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 8px;
+}
+
+table,
+th,
+td {
+    border: 1px solid white;
+}
+
+table td {
+    padding: 10px;
+}
+
+.backBtn {
+    position: sticky;
+    bottom: 10px;
+    right: 40%;
+}
+
+a button {
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px 20px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+
+    color: white;
+    background-color: teal;
+}
+
+a button:hover {
+    cursor: pointer;
+
+    color: black;
+    background-color: white;
+}

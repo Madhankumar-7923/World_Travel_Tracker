@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  border: none;
+}
+
+body {
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  background-color: #21252b;
+}
+
+.container {
+  position: relative;
+
+  height: 97vh;
+  width: 100%;
+}
+
+.wrapper {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+
+  transform: translate(-0%, -20%);
+
+  color: #ffffff;
+}
+
+form p {
+  font-size: 16px;
+}
+
+.input-box {
+  padding: 10px 20px;
+
+  border-radius: 50px;
+
+  height: 40px;
+  width: 90%;
+}
+
+.input-box:focus {
+  outline: none;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked+label span {
+  transform: scale(1.5);
+}
+
+input[type="radio"]+label span {
+  opacity: 70%;
+}
+
+input[type="radio"]:checked+label .red {
+  border: 2px solid #711313;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .orange {
+  border: 2px solid #873a08;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .yellow {
+  border: 2px solid #816102;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .olive {
+  border: 2px solid #505a0b;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .green {
+  border: 2px solid #0e4e1d;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .teal {
+  border: 2px solid #1f2215;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .blue {
+  border: 2px solid #103f62;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .violet {
+  border: 2px solid #321a64;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .purple {
+  border: 2px solid #501962;
+  opacity: 100%;
+}
+
+input[type="radio"]:checked+label .pink {
+  border: 2px solid #851554;
+  opacity: 100%;
+}
+
+label {
+  display: inline-block;
+
+  width: 30px;
+  height: 30px;
+
+  margin-right: 10px;
+
+  cursor: pointer;
+}
+
+label span {
+  display: block;
+
+  border-radius: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+label:hover span {
+  transform: scale(1.25);
+
+  opacity: 100% !important;
+}
+
+label span.red {
+  background: crimson;
+}
+
+label span.orange {
+  background: #f2711c;
+}
+
+label span.yellow {
+  background: #fbbd08;
+}
+
+label span.olive {
+  background: #b5cc18;
+}
+
+label span.green {
+  background: seagreen;
+}
+
+label span.teal {
+  background: tan;
+}
+
+label span.blue {
+  background: #2185d0;
+}
+
+label span.violet {
+  background: #6435c9;
+}
+
+label span.purple {
+  background: #a333c8;
+}
+
+label span.pink {
+  background: #e03997;
+}
+
+.spacer {
+  color: rgb(255, 0, 0);
+  font-size: 15px;
+}
+
+.rst-btn {
+  margin-top: 20px;
+  margin-right: 10px;
+  padding: 5px 20px;
+
+  border-radius: 5px;
+
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+.rst-btn:hover {
+  cursor: pointer;
+
+  color: black;
+  background-color: rgb(225, 225, 225);
+}
+
+.add-btn {
+  margin-top: 20px;
+  padding: 5px 20px;
+
+  border-radius: 5px;
+
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+.add-btn:hover {
+  cursor: pointer;
+
+  color: black;
+  background-color: rgb(225, 225, 225);
+}
+
+@media screen and (max-width: 650px) {
+
+  .input-box {
+    border-radius: 10px;
+    height: 30px;
+    width: 100%;
+  }
+
+  .wrapper {
+    width: 100%;
+
+    transform: translate(-33%, -25%);
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+}

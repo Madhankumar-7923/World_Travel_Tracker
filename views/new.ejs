@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Tracker New Member</title>
+    <link rel="stylesheet" href="./style/new.css">
+    <link rel="icon" href="./images/bicon.png">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="wrapper">
+
+            <h1>Add a New Member</h1>
+
+            <form action="/new" method="post">
+
+                <p>What's your Name?</p>
+                <input class="input-box" type="text" name="name" required autocomplete="off" autofocus placeholder="<%= locals.error ? error : 'Enter Your Name' %>">
+
+                <p>Pick a Color</p>
+
+                <input type="radio" name="color" id="red" value="crimson" required />
+                <label for="red"> <span class="red"></span> </label>
+
+                <input type="radio" name="color" id="green" value="seagreen" required />
+                <label for="green"> <span class="green"></span> </label>
+
+                <input type="radio" name="color" id="purple" value="mediumpurple" required />
+                <label for="purple"> <span class="purple"></span> </label>
+
+                <input type="radio" name="color" id="yellow" value="yellow" required />
+                <label for="yellow"> <span class="yellow"></span> </label>
+
+                <input type="radio" name="color" id="olive" value="olive" required />
+                <label for="olive"> <span class="olive"></span> </label>
+
+                <input type="radio" name="color" id="orange" value="orange" required />
+                <label for="orange"> <span class="orange"></span> </label>
+
+                <input type="radio" name="color" id="teal" value="tan" required />
+                <label for="teal"> <span class="teal"></span> </label>
+
+                <input type="radio" name="color" id="blue" value="cornflowerblue" required />
+                <label for="blue"> <span class="blue"></span> </label>
+
+                <input type="radio" name="color" id="violet" value="violet" required />
+                <label for="violet"> <span class="violet"></span> </label>
+
+                <input type="radio" name="color" id="pink" value="plum" required />
+                <label for="pink"><span class="pink"></span> </label>
+
+                <div class="spacer" id="existMessage">
+                    <p>
+                        <%= locals.exist ? exist : '' %>
+                    </p>
+                </div>
+
+                <button type="reset" class="rst-btn" id="resetBtn">Reset</button>
+                <button type="submit" class="add-btn">Add</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        document.getElementById('resetBtn').addEventListener('click', function () {
+            const existMessage = document.getElementById('existMessage');
+
+            if (existMessage) {
+                existMessage.textContent = '';
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
