@@ -3,10 +3,17 @@ import bodyParser from "body-parser";
 import pg from "pg";
 import env from "dotenv";
 
+import path from "path";
+import { fileURLToPath } from "url";
+
 env.config();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
+
+// Get the directory name from the current module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const db = new pg.Client({
     user: process.env.DB_USER,
@@ -19,7 +26,16 @@ const db = new pg.Client({
 db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+
+// set the public files directory
+app.use(express.static(path.join(__dirname, 'public')));
+/*app.use(express.static("public"));*/
+
+app.set('view engine', 'ejs');
+
+// Set the views directory
+app.set('views', path.join(__dirname, 'views'));
+
 
 let currentUserId = 1;
 
@@ -142,6 +158,10 @@ app.post("/new", async (req, res) => {
 
 app.get("/country", (req, res) => {
     res.render("country.ejs");
+});
+
+app.get("*", (req, res) => {
+    res.render("error.ejs", { title: "404 - Page Not Found" });
 });
 
 app.listen(port, () => {
