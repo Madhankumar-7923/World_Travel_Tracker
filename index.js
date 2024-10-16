@@ -26,7 +26,9 @@ const db = new pg.Client({
     },
 });
 
-db.connect();
+db.connect()
+    .then(() => console.log('Connected to PostgreSQL'))
+    .catch((err) => console.error('Connection error:', err));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
