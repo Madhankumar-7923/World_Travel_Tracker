@@ -1000,34 +1000,53 @@
         /*PAN & ZOOM CONTROL*/
         const mapContainer = document.getElementById('map');
 
-        let panX = 0;
-        let panY = 0;
-        let scale = 1;
-        let isPanning = false;
-        let startX, startY;
+let panX = 0;
+let panY = 0;
+let scale = 1;
+let isPanning = false;
+let startX, startY;
 
-        // Panning control
-        mapContainer.addEventListener('mousedown', (e) => {
-            isPanning = true;
-            startX = e.clientX - panX;
-            startY = e.clientY - panY;
-        });
+// Helper function to get the correct coordinates (for both mouse and touch)
+function getEventPosition(e) {
+  if (e.touches && e.touches.length > 0) {
+    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }
+  return { x: e.clientX, y: e.clientY };
+}
 
-        mapContainer.addEventListener('mousemove', (e) => {
-            if (!isPanning) return;
-            panX = e.clientX - startX;
-            panY = e.clientY - startY;
-            mapContainer.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
-            //console.log(panX, panY)
-        });
+// Start Panning
+function startPan(e) {
+  isPanning = true;
+  const { x, y } = getEventPosition(e);
+  startX = x - panX;
+  startY = y - panY;
+  e.preventDefault(); // Prevent scrolling on mobile
+}
 
-        mapContainer.addEventListener('mouseup', () => {
-            isPanning = false;
-        });
+// Handle Panning
+function pan(e) {
+  if (!isPanning) return;
+  const { x, y } = getEventPosition(e);
+  panX = x - startX;
+  panY = y - startY;
+  mapContainer.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+}
 
-        mapContainer.addEventListener('mouseleave', () => {
-            isPanning = false;
-        });
+// Stop Panning
+function endPan() {
+  isPanning = false;
+}
+
+// Mouse Event Listeners
+mapContainer.addEventListener('mousedown', startPan);
+mapContainer.addEventListener('mousemove', pan);
+mapContainer.addEventListener('mouseup', endPan);
+mapContainer.addEventListener('mouseleave', endPan);
+
+// Touch Event Listeners
+mapContainer.addEventListener('touchstart', startPan, { passive: false });
+mapContainer.addEventListener('touchmove', pan, { passive: false });
+mapContainer.addEventListener('touchend', endPan);
 
         //Zoom Control
         function zoomIn() {
